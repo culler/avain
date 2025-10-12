@@ -4,8 +4,8 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "gpass"
+license = { text = "MIT License" }
 dynamic = ["version"]
-license = ["MIT"]
 dependencies = ["chafe", "tomlkit", "tkinter-embedded", "tk_clipssh"]
 description = "A graphical password manager."
 readme = {file = "README.rst", content-type = "text/x-rst"}
@@ -32,3 +32,6 @@ classifiers = [
 
 [tool.setuptools.dynamic]
 version = {attr = "gpass.__version__"}
+
+[project.scripts]
+gpass = "gpass.app:main"

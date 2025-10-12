@@ -26,7 +26,6 @@ class AccountViewer(tkinter.Toplevel):
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.title('GPass Accounts')
-        self.configure(background='red')
         top_frame = ttk.Frame(self)
         top_frame.columnconfigure(2, weight=1)
         self.edit_button = ttk.Button(top_frame, text='Edit Account ...')
@@ -50,6 +49,7 @@ class AccountViewer(tkinter.Toplevel):
         sb.grid(row=1, column=1, sticky='ns')
         self.columnconfigure(0, weight=1)
         self.rowconfigure(1, weight=1)
+        self.protocol("WM_DELETE_WINDOW", self.iconify)
 
     def item_selected(self, event) -> None:
         global clipssh
@@ -59,11 +59,12 @@ class AccountViewer(tkinter.Toplevel):
         credential = Credential(self.treeview)
         if credential.name == 'password':
             clipssh(credential.value)
-            self.status_var.set('password')
+            self.status_var.set(credential.value)
         elif credential.name =='totp_key':
             G = TOTPGenerator(credential.value)
-            clipssh(G.current_token())
-            self.status_var.set('TOTP')
+            token = G.current_token()
+            clipssh(token)
+            self.status_var.set(token)
 
     def handle_paste(self, event=None):
         self.status_var.set('')

@@ -1,0 +1,11 @@
+IDs.sh
+notabot.cfg
+.DS_Store
+build
+dist
+__pycache__
+mac_app/Avain
+*~
+*.dmg
+*.o
+*.whl

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="1024"
+   height="1024"
+   viewBox="0 0 1024 1024"
+   version="1.1"
+   id="svg1"
+   inkscape:version="1.4.2 (ebf0e940, 2025-05-08)"
+   sodipodi:docname="Avain_icon.svg"
+   inkscape:export-filename="Avain_icon.png"
+   inkscape:export-xdpi="96"
+   inkscape:export-ydpi="96"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview1"
+     pagecolor="#ffffff"
+     bordercolor="#111111"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="1"
+     inkscape:deskcolor="#d1d1d1"
+     inkscape:document-units="px"
+     inkscape:zoom="0.4609375"
+     inkscape:cx="512"
+     inkscape:cy="510.91525"
+     inkscape:window-width="1064"
+     inkscape:window-height="758"
+     inkscape:window-x="193"
+     inkscape:window-y="61"
+     inkscape:window-maximized="0"
+     inkscape:current-layer="layer1" />
+  <defs
+     id="defs1" />
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <rect
+       style="fill:#f2d517;fill-opacity:1;stroke:#000000;stroke-width:1.61189;stroke-opacity:1"
+       id="rect4"
+       width="1022.3881"
+       height="1022.3881"
+       x="0.80594188"
+       y="0.80594188"
+       ry="224.01141" />
+    <path
+       style="fill:#0a0a0a;fill-opacity:1;stroke:#000000;stroke-width:1.6;stroke-opacity:1"
+       d="m 429.17206,444.30139 169.70564,-4.52547 72.40773,432.18364 -330.36029,-2.26274 z"
+       id="path4"
+       sodipodi:nodetypes="ccccc" />
+    <ellipse
+       style="fill:#0a0a0a;fill-opacity:1;stroke:#000000;stroke-width:1.45752;stroke-opacity:1"
+       id="path5"
+       cx="509.72681"
+       cy="286.29767"
+       rx="193.53566"
+       ry="183.35333" />
+  </g>
+</svg>

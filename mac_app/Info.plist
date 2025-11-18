@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>CFBundleDevelopmentRegion</key>
+    <string>English</string>
+    <key>CFBundleDisplayName</key>
+    <string>Avain</string>
+    <key>CFBundleExecutable</key>
+    <string>Avain</string>
+    <key>CFBundleIconFile</key>
+    <string>Avain.icns</string>
+    <key>CFBundleIdentifier</key>
+    <string>org.culler.marc.avain</string>
+    <key>CFBundleInfoDictionaryVersion</key>
+    <string>6.0</string>
+    <key>CFBundleName</key>
+    <string>Avain</string>
+    <key>CFBundlePackageType</key>
+    <string>APPL</string>
+    <key>CFBundleShortVersionString</key>
+    <string>0.1</string>
+    <key>CFBundleSignature</key>
+    <string>????</string>
+    <key>CFBundleVersion</key>
+    <string>0.1.0</string>
+    <key>LSArchitecturePriority</key>
+    <array>
+        <string>arm64</string>
+    </array>
+    <key>LSRequiresNativeExecution</key>
+    <true/>
+    <key>LSHasLocalizedDisplayName</key>
+    <false/>
+    <key>LSRequiresCarbon</key>
+    <true/>
+    <key>NSAppleScriptEnabled</key>
+    <false/>
+    <key>NSHumanReadableCopyright</key>
+    <string>Copyright © 2025 Marc Culler.</string>
+    <key>NSRequiresAquaSystemAppearance</key>
+    <string>No</string>
+  </dict>
+</plist>

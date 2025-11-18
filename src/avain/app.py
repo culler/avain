@@ -1,8 +1,11 @@
 import os
 import tomllib
-import tkinter_embedded as tkinter
-from tkinter_embedded import ttk
-from tkinter_embedded.font import Font
+#import tkinter_embedded as tkinter
+#from tkinter_embedded import ttk
+#from tkinter_embedded.font import Font
+import tkinter
+from tkinter import ttk
+from tkinter.font import Font
 from chacha import ChaChaContext, BadPassphrase
 from .viewer import AccountViewer
 from .totp import TOTPGenerator
@@ -32,10 +35,10 @@ class TOTPCommand:
         G = TOTPGenerator(self.totp_key)
         clipssh(G.current_token())
 
-class GPassApp(tkinter.Tk):
+class AvainApp(tkinter.Tk):
     def __init__(self):
         super().__init__()
-        self.title('GPass')
+        self.title('Avain')
         global clipssh
         if clipssh is None:
             import tk_clipssh
@@ -67,8 +70,8 @@ class GPassApp(tkinter.Tk):
         self.menubar = menubar = tkinter.Menu(self)
         menubar = tkinter.Menu(self)
         Application_menu = tkinter.Menu(menubar, name="apple")
-        menubar.add_cascade(label='GPass', menu=Application_menu)
-        Application_menu.insert_command(0, label='About GPass ...',
+        menubar.add_cascade(label='Avain', menu=Application_menu)
+        Application_menu.insert_command(0, label='About Avain ...',
             command=self.about)
         Application_menu.insert_separator(0)
 
@@ -140,7 +143,7 @@ class GPassApp(tkinter.Tk):
         self.mainloop()
 
 def main():
-    app = GPassApp()
+    app = AvainApp()
     app.run()
 
 if __name__ == '__main__':

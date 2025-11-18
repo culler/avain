@@ -1,5 +1,7 @@
-import tkinter_embedded as tkinter
-from tkinter_embedded import ttk
+#import tkinter_embedded as tkinter
+#from tkinter_embedded import ttk
+import tkinter as tkinter
+from tkinter import ttk
 from .totp import TOTPGenerator
 
 clipssh = None # Will be initialized after there is a Tk interpreter

@@ -3,10 +3,10 @@ requires = ["setuptools"]
 build-backend = "setuptools.build_meta"
 
 [project]
-name = "gpass"
+name = "avain"
 license = { text = "MIT License" }
 dynamic = ["version"]
-dependencies = ["chafe", "tomlkit", "tkinter-embedded", "tk_clipssh"]
+dependencies = ["chafe", "tomlkit"]
 description = "A graphical password manager."
 readme = {file = "README.rst", content-type = "text/x-rst"}
 authors = [
@@ -27,11 +27,11 @@ classifiers = [
     ]
 
 [project.urls]
-"Homepage" = "https://github.com/culler/gpass"
-"Bug Tracker" = "https://github.com/culler/gpass/issues"
+"Homepage" = "https://github.com/culler/avain"
+"Bug Tracker" = "https://github.com/culler/avain/issues"
 
 [tool.setuptools.dynamic]
-version = {attr = "gpass.__version__"}
+version = {attr = "avain.__version__"}
 
 [project.scripts]
-gpass = "gpass.app:main"
+avain = "avain.app:main"

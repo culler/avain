@@ -9,7 +9,7 @@ create-dmg \
   --window-size 500 400 \
   --icon-size 96 \
   --icon "Avain" 50 150 \
-  --app-drop-link 350 150 \
+  --app-drop-link 300 150 \
   --format ULFO \
   --no-internet-enable \
   $DMG_NAME $SOURCE

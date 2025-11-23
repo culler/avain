@@ -25,7 +25,8 @@ class Credential:
         
 class AccountViewer(tkinter.Toplevel):
 
-    def __init__(self, *args, **kwargs):
+    def __init__(self, app, *args, **kwargs):
+        self.app = app
         super().__init__(*args, **kwargs)
         self.title('GPass Accounts')
         top_frame = ttk.Frame(self)
@@ -51,8 +52,13 @@ class AccountViewer(tkinter.Toplevel):
         sb.grid(row=1, column=1, sticky='ns')
         self.columnconfigure(0, weight=1)
         self.rowconfigure(1, weight=1)
-        self.protocol("WM_DELETE_WINDOW", self.iconify)
+        self.protocol("WM_DELETE_WINDOW", self.close)
+        self.config(menu=app.menubar)
 
+    def close(self):
+        self.app.account_viewer = None
+        self.destroy()
+        
     def item_selected(self, event) -> None:
         global clipssh
         if clipssh is None:

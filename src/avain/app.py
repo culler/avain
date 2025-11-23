@@ -12,14 +12,6 @@ from .totp import TOTPGenerator
 
 clipssh = None # Initialized after the interpreter is created
 
-shortcuts = {'Open'   : u'\t\t\u2318O',
-             'New'    : u'\t\t\u2318N',
-             'SaveAs' : u'\t\u2318\u21e7S',
-             'Quit'   : u'\t\t   \u2318Q',
-             'Cut'    : u'\t\t\u2318X',
-             'Copy'   : u'\t\u2318C',
-             'Paste'  : u'\t\u2318V'}
-
 class PasswordCommand:
     def __init__(self, password):
         self.password = password
@@ -68,20 +60,12 @@ class AvainApp(tkinter.Tk):
 
     def _init_menus(self):
         self.menubar = menubar = tkinter.Menu(self)
-        menubar = tkinter.Menu(self)
         Application_menu = tkinter.Menu(menubar, name="apple")
         menubar.add_cascade(label='Avain', menu=Application_menu)
         Application_menu.insert_command(0, label='About Avain ...',
             command=self.about)
         Application_menu.insert_separator(0)
 
-        #file_menu = tkinter.Menu(menubar, name="file")
-        #file_menu.add_command(label='Open...' + shortcuts['Open'],
-        #                      command=self.file_open)
-        #file_menu.add_command(label='New...' + shortcuts['New'],
-        #                      command=self.file_new)
-        #menubar.add_cascade(label='File', menu=file_menu)
-        
         edit_menu = tkinter.Menu(menubar, name="file")
         edit_menu.add_command(label='Accounts ...',
                               command=self.edit_accounts)
@@ -93,8 +77,6 @@ class AvainApp(tkinter.Tk):
         self.totp_menu = tkinter.Menu(menubar, name='totp')
         menubar.add_cascade(label='TOTP', menu=self.totp_menu)
 
-        #window_menu = tkinter.Menu(menubar, name='window')
-        #menubar.add_cascade(label='Window', menu=window_menu)
         self.config(menu=menubar)
 
     def populate_menus(self):
@@ -124,7 +106,7 @@ class AvainApp(tkinter.Tk):
 
     def edit_accounts(self):
         if not self.account_viewer:
-            self.account_viewer = AccountViewer()
+            self.account_viewer = AccountViewer(self)
             self.account_viewer.load_dict(self.data)
             self.bind('<<ClipsshPaste>>', self.account_viewer.handle_paste)
         else:

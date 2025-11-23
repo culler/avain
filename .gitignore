@@ -9,3 +9,4 @@ mac_app/Avain
 *.dmg
 *.o
 *.whl
+*.egg-info

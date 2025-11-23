@@ -1,15 +1,22 @@
 #!/bin/bash
-SOURCE=Avain
-DMG_NAME=$SOURCE.dmg
-rm -f $DMG_NAME
-create-dmg \
-  --volname $SOURCE \
-  --volicon Avain.icns \
-  --background background.png \
-  --window-size 500 400 \
-  --icon-size 96 \
-  --icon "Avain" 50 150 \
-  --app-drop-link 300 150 \
-  --format ULFO \
-  --no-internet-enable \
-  $DMG_NAME $SOURCE
+
+rm -f temp.dmg Avain.dmg
+# Create a writeable dmg large enough to hold the app.
+hdiutil create -size 125m -srcfolder Avain -format UDRW -volname Avain temp.dmg
+# Attach the writeable dmg
+hdiutil attach temp.dmg
+# Copy files
+ln -s /Applications /Volumes/Avain/Applications
+mkdir -p /Volumes/Avain/.background
+cp -a dmg_files/background.png /Volumes/Avain/.background
+cp -a dmg_files/dot_VolumeIcon.icns /Volumes/Avain/.VolumeIcon.icns
+cp -a dmg_files/dot_DS_Store /Volumes/Avain/.DS_Store
+# Wait
+echo "Hit Enter to continue"
+read response
+# Unmount the temporary dmg
+hdiutil detach /Volumes/Avain
+# Create a minimal, compressed, read-only version of the dmg.
+hdiutil convert temp.dmg -format UDZO -o Avain.dmg
+# Remove the writeable dmg.
+rm temp.dmg

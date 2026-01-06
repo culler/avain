@@ -28,7 +28,7 @@ class AccountViewer(tkinter.Toplevel):
     def __init__(self, app, *args, **kwargs):
         self.app = app
         super().__init__(*args, **kwargs)
-        self.title('GPass Accounts')
+        self.title('Accounts')
         top_frame = ttk.Frame(self)
         top_frame.columnconfigure(2, weight=1)
         self.edit_button = ttk.Button(top_frame, text='Edit Account ...')
@@ -56,8 +56,9 @@ class AccountViewer(tkinter.Toplevel):
         self.config(menu=app.menubar)
 
     def close(self):
-        self.app.account_viewer = None
-        self.destroy()
+        self.withdraw()
+        self.app.eval('focus -force .')
+        self.app.config(menu=self.app.menubar)
         
     def item_selected(self, event) -> None:
         global clipssh

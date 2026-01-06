@@ -1,0 +1,15 @@
+#!/bin/bash
+SOURCE=dist
+DMG_NAME=Avain.dmg
+rm -f $DMG_NAME
+create-dmg \
+  --volname Avain \
+  --volicon avain/avain.icns \
+  --background background.png \
+  --window-size 500 400 \
+  --icon-size 128 \
+  --icon "Avain" 50 150 \
+  --app-drop-link 300 150 \
+  --format ULFO \
+  --no-internet-enable \
+  $DMG_NAME $SOURCE

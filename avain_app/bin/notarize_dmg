@@ -1,0 +1,9 @@
+#!/bin/bash
+set -e
+source IDs.sh
+DMG=Avain.dmg
+codesign -s $DEV_ID --force $DMG
+OPTIONS="--wait --apple-id $APPLE_ID --team-id $DEV_ID \
+--password $ONE_TIME_PASS"
+xcrun notarytool submit $DMG $OPTIONS
+xcrun stapler staple $DMG

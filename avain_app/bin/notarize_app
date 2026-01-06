@@ -1,0 +1,9 @@
+#!/bin/bash
+set -e
+source IDs.sh
+DIST=dist
+APP=$DIST/Avain.app
+DMG=Avain.dmg
+OPTIONS="--apple-id $APPLE_ID --team-id $DEV_ID --password $ONE_TIME_PASS --wait"
+xcrun notarytool submit $DMG $OPTIONS
+xcrun stapler staple $APP

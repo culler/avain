@@ -1,13 +1,11 @@
 import os
 import tomllib
-#import tkinter_embedded as tkinter
-#from tkinter_embedded import ttk
-#from tkinter_embedded.font import Font
 import tkinter
 from tkinter import ttk
 from tkinter.font import Font
 from chacha import ChaChaContext, BadPassphrase
 from .viewer import AccountViewer
+from .new_account import NewAccountDialog
 from .totp import TOTPGenerator
 
 clipssh = None # Initialized after the interpreter is created
@@ -56,6 +54,7 @@ class AvainApp(tkinter.Tk):
                    command=self.check).pack()
         self.bottom.grid(row=2, column=0)
         self._init_menus()
+        self.config(menu=self.menubar)
         self.text.focus()
 
     def _init_menus(self):
@@ -65,19 +64,16 @@ class AvainApp(tkinter.Tk):
         Application_menu.insert_command(0, label='About Avain ...',
             command=self.about)
         Application_menu.insert_separator(0)
-
-        edit_menu = tkinter.Menu(menubar, name="file")
-        edit_menu.add_command(label='Accounts ...',
+        account_menu = tkinter.Menu(menubar, name="accounts")
+        account_menu.add_command(label='New Account ...',
+                              command=self.new_account)
+        account_menu.add_command(label='View/Edit Accounts ...',
                               command=self.edit_accounts)
-        menubar.add_cascade(label='Edit', menu=edit_menu)
-
+        menubar.add_cascade(label='Accounts', menu=account_menu)
         self.password_menu = tkinter.Menu(menubar, name='passwords')
         menubar.add_cascade(label='Passwords', menu=self.password_menu)
-
         self.totp_menu = tkinter.Menu(menubar, name='totp')
         menubar.add_cascade(label='TOTP', menu=self.totp_menu)
-
-        self.config(menu=menubar)
 
     def populate_menus(self):
         for account, account_dict in sorted(self.data.items()):
@@ -104,6 +100,10 @@ class AvainApp(tkinter.Tk):
         self.populate_menus()
         self.withdraw()
 
+    def new_account(self):
+        dialog = NewAccountDialog(self)
+        print(dialog.account)
+
     def edit_accounts(self):
         if not self.account_viewer:
             self.account_viewer = AccountViewer(self)
@@ -112,12 +112,6 @@ class AvainApp(tkinter.Tk):
         else:
             self.account_viewer.deiconify()
 
-    def file_open(self):
-        print('Open')
-
-    def file_new(self):
-        print('New')
-        
     def about(self):
         print('About')
 

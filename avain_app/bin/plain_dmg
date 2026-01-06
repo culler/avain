@@ -1,0 +1,17 @@
+#!/bin/bash
+SOURCE=dist
+mkdir -p $SOURCE
+if ! [ -e $SOURCE/Avain.app ]; then
+    cp -a avain/Avain.app $SOURCE
+fi
+DMG_NAME=Avain.dmg
+VOLUME_NAME=Avain
+echo Creating ...
+hdiutil create -volname $VOLUME_NAME -srcfolder $SOURCE temp_$DMG_NAME
+if [ -e $DMG_NAME ]; then
+    echo Removing old $DMG_NAME 
+    rm -f $DMG_NAME
+fi
+echo Compressing ...
+hdiutil convert temp_$DMG_NAME -format ULFO -o $DMG_NAME
+rm temp_$DMG_NAME
